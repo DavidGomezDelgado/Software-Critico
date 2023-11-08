@@ -12,7 +12,7 @@ def split_sequence(sequence, n_steps):
 		# find the end of this pattern
 		end_ix = i + n_steps
 		# check if we are beyond the sequence
-		if end_ix > len(sequence)-1:
+		if end_ix > len(sequence)-1: #quitamos uno porque buscamos predecir el último elemento
 			break
 		# gather input and output parts of the pattern
 		seq_x, seq_y = sequence[i:end_ix], sequence[end_ix]
@@ -31,13 +31,13 @@ n_features = 1
 X = X.reshape((X.shape[0], X.shape[1], n_features))
 # define model
 model = Sequential()
-model.add(LSTM(50, activation='relu', input_shape=(n_steps, n_features)))
-model.add(Dense(1))
+model.add(LSTM(50, activation='relu', input_shape=(n_steps, n_features))) #relu -> rectificación lineal
+model.add(Dense(1)) 
 model.compile(optimizer='adam', loss='mse')
 # fit model
 model.fit(X, y, epochs=200)
 # demonstrate prediction
 x_input = array([70, 80, 90])
-x_input = x_input.reshape((1, n_steps, n_features))
+x_input = x_input.reshape((1, n_steps, n_features)) #solo queremos una muestra
 yhat = model.predict(x_input, verbose=0)
 print(yhat)

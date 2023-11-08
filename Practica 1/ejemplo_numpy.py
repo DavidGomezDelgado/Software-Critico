@@ -1,5 +1,6 @@
 # https://www.geeksforgeeks.org/python-numpy/
 
+
 import numpy as np
 import matplotlib.pyplot as plt
  
@@ -10,6 +11,8 @@ print("Array with Rank 1: \n",arr)
 # Creating a rank 2 Array
 arr = np.array([[1, 2, 3],
                 [4, 5, 6]])
+#arr.shape me dice la forma del array
+print("Prueba shape: ", arr.shape)
 print("Array with Rank 2: \n", arr)
 
 plt.scatter(x=arr[0],y=arr[1])
@@ -26,7 +29,7 @@ print(arr)
  
 # Printing a range of Array
 # with the use of slicing method
-sliced_arr = arr[:2, 1:3]
+sliced_arr = arr[:2, 1:3] #me quedo con las dos primeras filas y las columnas de la 1 a la 2 (no cuenta la 3)
 
 #[[ 2.   0. ]
  #[-0.5  6. ]]

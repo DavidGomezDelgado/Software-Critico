@@ -35,6 +35,9 @@ model.add(LSTM(50, activation='relu', return_sequences=True, input_shape=(n_step
 model.add(LSTM(50, activation='relu'))
 model.add(Dense(1))
 model.compile(optimizer='adam', loss='mse')
+
+model.summary()
+
 # fit model
 model.fit(X, y, epochs=200, verbose=0)
 # demonstrate prediction
